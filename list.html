@@ -2,6 +2,11 @@
 <html lang="ko">
 	<meta charset = "utf-8">
 	<style>
+	  div, hr{
+			margin : 10px;
+			border: 2px solid green;
+
+		}
 		img{
 			width : 100px;
 			height : 100px;
@@ -9,6 +14,9 @@
 		div{
 			border: 1px solid orange;
 			float : left;
+		}
+		hr , #hol{
+			clear : both; //블록 요소일때만 clear이 실행이 된다.
 		}
 	</style>
 
@@ -24,8 +32,8 @@
 
 			<div>
 				<ul>
-					<li>아메리카노</li>
-					<li>카페오레</li>
+					<li><a href = "https://www.naver.com/" target="_blank">네이버</a></li>
+					<li><a href = "https://www.daum.net/" target="_self">다음</a></li>
 					<li>카푸치노</li>
 				</ul>
 			</div>
@@ -43,17 +51,51 @@
 			  </ul>
 			</div>
 
+			<div>
+
+				<ul>
+					<li>
+
+						<ol>
+							<li>봄</li>
+							<li>여름</li>
+							<li>가을</li>
+						</ol>
+					</li>
+				</ul>
+
+				<ul>
+					<li>
+					<ol>
+						<li>매화</li>
+						<li>복수초</li>
+						<li>산수유</li>
+					</ol>
+				</li>
+				</ul>
+
+			</div>
+
 			<hr>
 
 
-				<h1>번호 있는 리스트</h1>
+
 				<div>
 				<ol>
-					<li><a href="아메리카노.html"><img src="images/아메리카노.jpg"></li>
-					<li><a href="카페오레.html"></a><img src ="images/카페라떼.jpg"></li>
-					<li<a href="카푸치노.html"></a><img src="images/카푸치노.jpg"></li>
+					<li><a href="아메리카노.html" target="_blank"><img src="images/아메리카노.jpg"></li>
+					<li><a href="카페오레.html" target="_blank"></a><img src ="images/카페라떼.jpg"></li>
+					<li<a href="카푸치노.html" target="_blank"></a><img src="images/카푸치노.jpg"></li>
 				</ol>
 			</div>
+
+			<div>
+				<ul>
+					<li>아메리카노</li>
+					<li>카페오레</li>
+					<li>카푸치노</li>
+				</ul>
+			</div>
+			<h1 id = "hol">번호 있는 리스트</h1>
 	</body>
 
 </html>
