@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href="../css/mystyle.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+	fieldset{
+		width : 40%;
+		height: 300px;
+		border : 1px solid blue;
+	}
+	label {
+		display : inline-block;
+		width : 100px;
+		height: 40px;
+	}
+	legend {
+		border : 1px solid red;
+	}
+	
+</style>
+</head>
+<body>
+	<fieldset>
+		<legend>인적사항 입력</legend>
+		이름 <input type = "text" name="name"><br>
+		전화	번호 <input type="text" name ="tel"><br>
+		주소 <input type="text" name ="addr"><br>
+	</fieldset>
+	<br><br>
+	<pre>
+		&lt;labal&gt;label&lt;/labal&gt;적용
+		label은 inline 요소 이다.
+		
+		인라인 속성을 블럭속성으로 변경한다. 왜? 변경 : inline은 크기 조절이 불가능하다. 크기를 조절하기 위해서는 block으로 변경해야 한다.
+		display 스타일을 설정
+		inline	: 줄이 바뀌지 않는다.
+		block	: 자동으로 줄바꿈, 크기조절 할 수 있다.
+		inline-block	: 줄이 바뀌지 않으면서 크기 조절을 할 수 있다.
+		none	: 화면에 표시하지 않는다. ;
+	</pre>
+	<fieldset>
+		<legend>인적사항 입력</legend>
+		<label for="name">이름</label> <input type = "text" name="name"><br>
+		<label for="tel">전화	번호</label> <input type="text" name ="tel"><br>
+		<label for="addr">주소</label> <input type="text" name ="addr"><br>
+		성별 라벨 적용 X 
+		<input type="radio" name="gender" checked="checked" value="남자">남자
+		<input type="radio" name="gender"  value="여자">여자
+		
+		<legend>라디오 label 적용</legend>
+		<label for="male">남자</label>
+		<input type="radio" value="남자" name="gender" id="male">
+		<br>
+		<label for="bbfg">여자</label>
+		<input type="radio" value="여자" name="gender" id="female">
+		</fieldset>
+	</fieldset>
+</body>
+</html>
