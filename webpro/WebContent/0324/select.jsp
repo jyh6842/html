@@ -40,15 +40,18 @@
  	// 5. sql 문장을 실행하기
  	ResultSet rs = stmt.executeQuery(sql);
  	
- 	if(rs.next()){
+ 	boolean check = false;
+ 	
  	// 출력하기
- 	rs = stmt.executeQuery(sql);
+ 	
  	while(rs.next()){
+ 	   check = true;
  	   out.print("<p>아이디 : " + rs.getString("mem_id") + "</p>");
  	   out.print("<p>이름 : " + rs.getString("mem_name") + "</p>");
  	   out.print("<p>전화번호 : " + rs.getString("mem_hp") + "</p>");
- 	   }
- 	}else {
+ 	}
+ 	if(!check)
+ 	{
  	   out.print("<p>원하는 찾는 데이터가 없습니다</p>");
  	}
  %>
