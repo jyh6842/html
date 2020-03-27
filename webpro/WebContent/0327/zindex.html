@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	div {
+		width: 200px;
+		height: 100px;
+		margin: 20px;
+		/* position: absolute; */
+	}
+	
+	#d1{
+		background-color: yellow;
+		top : 20px;
+		z-index: 100;
+	}
+	
+	#d2 {
+		background-color: blue;
+		top : 30px;
+		z-index: 50;
+	}
+	
+	#d3 {
+		background-color: green;
+		top : 50px;
+		
+	}
+	
+	#d4{
+		background-color: pink;
+		top : 80px;
+	}
+	
+	p{
+		position : absolute;
+		font-size : 2.0em;
+		z-index: 1000;
+	}
+	img{
+		position: absolute;
+		top:500px;
+	}
+
+</style>
+</head>
+<body>
+	<div id="d1">1</div>
+	<div id="d2">2</div>
+	<div id="d3">3</div>
+	<div id="d4">4</div>
+	<br>
+	<hr>
+	
+	<p>무궁화 꽃이 피었습니다.</p>
+	<img alt="그림을 불러오지 못했습니다." src="../images/Coca-Cola-logo.png">
+
+</body>
+</html>
