@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	div{
+		margin : 10px;
+	}
+	header, nav, section, footer {
+		margin : 5px;
+		padding : 5px;
+		
+		
+	}
+	header {
+		border: 1px solid black;
+		text-align: center;
+		background-color: purple;
+		
+	}
+	nav {
+		border: 1px solid black;
+		width: 25%;
+		height : 350px;
+		background-color: orange;
+		
+		float : left;
+	}
+	section {
+		border: 1px solid black;
+		width : calc(75% - 47px);
+		height : 350px;
+		background-color: yellow;
+		float : right;
+	}
+	footer {
+		clear : both;
+		border: 1px solid black;
+		background-color : brown;
+		text-align: center;
+		
+	}
+	#navdiv{
+		float :  right;
+	}
+</style>
+</head>
+<body>
+	<div>
+		<header>My Blog page</header>
+		<nav>
+			<h2>Link</h2>
+				<ul>
+					<li><a href="">W3C</a></li>
+					<li><a href="">MOZILLA</a></li>
+					<li><a href="">HTML Dogs</a></li>
+					
+					
+				</ul>
+	
+				<div id = "navdiv">
+				<img src="../images/음악1.jpg" width="150px" height="150px" >
+			</div>
+		</nav>
+		<section>
+		<h3>Semantic Tags</h3>
+		<br>
+		시멘틱 요소(Semantic elements)들은 브라우저에게 요소의 의미나 목적을 명확하게 알려주는 요소이다.
+		<br>
+		<h3>div와 span</h3>
+		<br>
+		div은 "divide"의 약자로서 페이지를 논리적인 섹션을 분리하는데 사용되는 태그이다. span 요소는 인라인 요소로서 텍스트를 위한 컨테이너로 사용할 수 있다.
+		</section>
+		<footer>copyright (c) 2013 Hong</footer>
+	</div>	
+</body>
+</html>
