@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	//prompt 를 이용, 두개의 수와 연산자를 입력
+			function(calc()){
+		
+			x = parseInt(prompt("첫번째 수 입력 : "));
+			
+			y = parseInt(prompt("두번째 수 입력 : "));
+			
+			op = prompt("연산자 입력 : ");
+			
+			if(op == "+"){
+				res = x + y;
+				
+			}else if(op == "-"){
+				
+				res = x - y;
+			
+			}else if(op == "*"){
+
+				res = x * y;
+			
+			}else if(op == "/"){
+
+				res = x / y;
+			}
+			
+			str = x + " " + op + " " + y + " = " +res;
+			// div 요소로 접근하기
+			document.getElementById('result').innerHTML = str;
+			
+			
+			
+			
+			
+	}
+	//
+</script>
+<style type="text/css">
+	div{
+		width : 100px;
+		height: 100px;
+		border : 1px solid red;
+	}
+</style>
+</head>
+<body>
+	<input type="button" value="실행" onclick="calc()">
+	<br>
+	<br>
+	<div id = "result"></div>
+</body>
+</html>

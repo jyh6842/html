@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/mystyle.css" type="text/css">
+<style type="text/css">
+	textarea {
+		font-size : 20px;
+	}
+
+</style>
+<script src="../js/myscript.js" type="text/javascript"></script>
+</head>
+	<script type="text/javascript">
+		document.write("Hello~~~~");
+		
+		function proc(){
+			// 입력받은 문자를 출력한다.
+			a = prompt("입력하세요");
+			
+			// alert(a);
+			// document.write(a);
+			
+			// html 요소에 접근하는 방법
+			// 태그 이름을 이용 : document.getElementsBytagName('textarea')[0] 
+			// id 를 이용 : document.getElementById('text')
+			// html 요소에 출력 - value(input, textarea), innerHTML, textContent
+			txt = document.getElementById('text');
+			txt.value += "\n" + a;
+			
+		}
+	</script>
+<body>
+<pre>
+	document : body 태그 안의 요소와 내용이 document 객체로 생성되어 window 객체에 실행된다.
+	javascript : 동적인 기능을 부여한다.
+	
+	※ 입력 기능
+  		a = prompt("입력하세요") '' ," " 둘다 가능
+	
+	※ 출력 기능 
+	  1. alert(a);
+	  2. document.write(a) : 이전에 이미 생성된 document는
+	 						  새로운 docuemnt로 덮어 쓰여지기 때문에
+	 					 	  이전에 실행된 내용은 사라진다.
+	  3. html 요소
+	 	 3.1 
+	 		태그 이름을 이용 : document.getElementsBytagName('textarea')[0] 
+			id 를 이용 : document.getElementById('text')
+		 3.2 
+			html 요소에 출력 - value(input, textarea), innerHTML, textContent
+			txt = document.getElementById('text');
+   			txt.value +="\n"+ a;
+			 					 
+</pre>
+<br>
+	<textarea id="text" rows="15" cols="60">안녕하세요</textarea>
+	<br>
+	<input type="button" value="확인" onclick="proc()">
+	<input type="button" value="배경색 변경" onclick="proc2()">
+	
+	
+	
+</body>
+</html>

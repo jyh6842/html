@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href="../css/mystyle.css" rel="stylesheet" type="text/css">
+<script type="text/javascript">
+	window.onload = function(){
+		
+		x = prompt("첫번째 수 입력 : ");
+		y = prompt("두번째 수 입력 : ");
+		x = parseInt(x);
+		y = parseInt(y);
+		
+		alert(x+y);
+		
+		// body 태그안의 div 요소에 결과 출력 56+ 90 = 146
+		// div 요소로 접근하기
+		result = document.getElementById('result');
+		
+		sum = x+y;
+		
+		// div 요소에 출력하기 - innerHtml, textContent
+		result.innerHTML = x + " + " +
+						   y + " = " +
+						   sum;
+		
+	}
+		
+	
+</script>
+<style type="text/css">
+	div{
+		width : 50%;
+		height: 50px;
+		padding : 10px;
+		margin : 20px;
+		border: 1px dotted green;
+		font-size : 1.5em;
+	}
+</style>
+</head>
+<body>
+	<pre>
+		window.onload = function(){
+			여기에 기술된 내용은 
+			스크립트보다 body 태그에 의한 document가 생성되어
+			window에 실행되어 로드된 후
+			function() 을 실행 한다.
+		}
+	</pre>
+	<div id ="result">
+		
+	</div>
+	
+	
+
+</body>
+</html>
