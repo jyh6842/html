@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	header, nav, aside, section, footer {
+		border: 1px solid black;
+		border-radius: 10px;
+		margin: 10px;
+		padding: 5px;
+		
+	}
+	header{
+		background: rgba(255, 127, 0, 0.5);
+	}
+	nav {
+		background-color: rgba(139, 0, 255, 0.5);
+	}
+	aside {
+		background-color: rgba(255, 192, 203, 0.3);
+		width : 230px;
+		height: 400px;
+	}
+	
+	section {
+		float: left;
+	}
+	
+	iframe {
+		margin: 3px;
+		border: 1px solid black;
+		border-radius: 5px;
+		height: 400px;
+		
+	}
+	footer {
+		background-color: rgba(137, 119, 173, 0.5);
+		clear: both;
+		text-align: center;
+	}
+	
+	#aside_left{
+		float : left;
+	}
+	#aside_right{
+		float : right;
+	}
+	
+	nav > ul > li {
+		
+		display: inline;
+		margin: 100px;
+	}
+	
+	ul > li {
+		list-style-type: none;
+	}
+	
+	#aside_left_ul li {
+		background-color: pink;
+		border-bottom : 1px solid black;
+		width : 80%;
+		height : 30px;
+		padding : 5px;
+		color: white;
+	}
+	
+	
+</style>
+</head>
+<body>
+<div>
+	<header><h1>Web Shopping</h1></header>
+	<nav>
+		<ul >
+			<li><a href="">Home</a></li>
+			<li><a href="">SHOPPING ABOUT</a></li>
+			
+			<li><a href="">NEWS</a></li>
+			<li><a href="">MY ACCOUNT</a></li>
+			<li><a href="">CONTACTS</a></li>
+		</ul>
+	</nav>
+	<aside id ="aside_left">
+	<h1>카테고리</h1>
+	<ul id="aside_left_ul">
+		<li>컴퓨터</li>
+		<li>의류</li>
+		<li>음악</li>
+		<li>영화</li>
+		<li>스포츠/레저</li>
+		<li>가구/인테리어</li>
+		<li>식품</li>
+	</ul>
+	</aside>
+	<section id="main">
+		<article id="article1">
+			<iframe src = "comptuter.html" name="ifr">
+			</iframe>
+			<iframe src = "comptuter.html" name="ifr">
+			</iframe>
+			<iframe src = "comptuter.html" name="ifr">
+			</iframe>
+		</article>
+	</section>
+	<aside id ="aside_right">
+	<h1>Shopping Cart</h1>
+	<p>현재 쇼핑카트에 물품이 없습니다.</p>
+	<p><a href="">쇼핑카트 보기</a></p>
+	<h1>Log In</h1>
+	<label for="id_">아이디</label><br>
+	<input type="text" name="id_"><br>
+	<label for="pass_">비밀번호</label><br>
+	<input type="text" name="pass_"><br>
+	<button type="submit">로그인</button>
+	<button type="submit">초기화</button><br>
+	<p><a href="">회원가입</a> <a href="">비밀번호 분실</a></p>
+	</aside>
+	<footer>2020.03.30 대덕인재개발원 042-1234-5678</footer>
+</div>
+</body>
+</html>
