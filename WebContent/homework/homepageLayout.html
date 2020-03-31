@@ -25,18 +25,22 @@
 	
 	section {
 		float: left;
+		width : 60%;
 	}
 	
 	iframe {
 		margin: 3px;
 		border: 1px solid black;
 		border-radius: 5px;
+		width : 98%;
 		height: 400px;
 		
 	}
 	footer {
 		background-color: rgba(137, 119, 173, 0.5);
 		clear: both;
+		height : 50px;
+		padding-top : 30px;
 		text-align: center;
 	}
 	
@@ -85,37 +89,33 @@
 	<aside id ="aside_left">
 	<h1>카테고리</h1>
 	<ul id="aside_left_ul">
-		<li>컴퓨터</li>
-		<li>의류</li>
-		<li>음악</li>
-		<li>영화</li>
-		<li>스포츠/레저</li>
-		<li>가구/인테리어</li>
-		<li>식품</li>
+		<li><a href="ifram_folder/computer.html" target="ifr">컴퓨터</a></li>
+		<li><a href = "ifram_folder/cloth.html" target = "ifr">의류</a></li>
+		<li><a href = "ifram_folder/music.html" target = "ifr">음악</a></li>
+		<li><a href = "ifram_folder/movie.html" target = "ifr">영화</a></li>
+		<li><a href = "ifram_folder/sport.html" target = "ifr">스포츠/레저</a></li>
+		<li><a href = "ifram_folder/gagu.html" target = "ifr">가구</a></li>
+		<li><a href = "ifram_folder/food.html" target = "ifr">식품</a></li>
 	</ul>
 	</aside>
 	<section id="main">
 		<article id="article1">
-			<iframe src = "../0320/카페오레.html" name="ifr">
-			</iframe>
-			<iframe src = "../0320/카푸치노.html" name="ifr">
-			</iframe>
-			<iframe src = "../0320/아메리카노.html" name="ifr">
+			<iframe src="ifram_folder/computer.html" name="ifr">
 			</iframe>
 		</article>
 	</section>
 	<aside id ="aside_right">
 	<h1>Shopping Cart</h1>
 	<p>현재 쇼핑카트에 물품이 없습니다.</p>
-	<p><a href="">쇼핑카트 보기</a></p>
+	<p><a href="shoppingCart.html">쇼핑카트 보기</a></p>
 	<h1>Log In</h1>
 	<label for="id_">아이디</label><br>
 	<input type="text" name="id_"><br>
 	<label for="pass_">비밀번호</label><br>
 	<input type="text" name="pass_"><br>
 	<button type="submit">로그인</button>
-	<button type="submit">초기화</button><br>
-	<p><a href="">회원가입</a> <a href="">비밀번호 분실</a></p>
+	<button type="reset">초기화</button><br>
+	<p><a href="Sign_In.html">회원가입</a> <a href="lost.html">비밀번호 분실</a></p>
 	</aside>
 	<footer>2020.03.30 대덕인재개발원 042-1234-5678</footer>
 </div>
