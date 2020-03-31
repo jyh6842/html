@@ -10,3 +10,27 @@ pre{
     border-left : 10px solid red;
     border-right : 10px solid red;
   }
+  
+.box {
+	margin: 10px;
+	padding: 20px;
+	background: #efefef;
+	height: auto;
+	
+}
+
+.box button{
+	background: blue;
+	color : white;
+	font-weight: bold;
+	padding: 5px;
+	border-radius: 30px;
+}
+
+.box div {
+	border: 2px dashed orange;
+	padding: 10px;
+	height: auto;
+	
+}
+
