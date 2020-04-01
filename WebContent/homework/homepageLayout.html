@@ -105,17 +105,21 @@
 		</article>
 	</section>
 	<aside id ="aside_right">
+	<div id="shopcart">
 	<h1>Shopping Cart</h1>
 	<p>현재 쇼핑카트에 물품이 없습니다.</p>
-	<p><a href="shoppingCart.html">쇼핑카트 보기</a></p>
+	<p><a href="./ifram_folder/shoppingCart.html" target="ifr">쇼핑카트 보기</a></p>
+	</div>
 	<h1>Log In</h1>
+	<form action="./ifram_folder/login.jsp" method="post">
 	<label for="id_">아이디</label><br>
 	<input type="text" name="id_"><br>
 	<label for="pass_">비밀번호</label><br>
 	<input type="text" name="pass_"><br>
 	<button type="submit">로그인</button>
 	<button type="reset">초기화</button><br>
-	<p><a href="Sign_In.html">회원가입</a> <a href="lost.html">비밀번호 분실</a></p>
+	<a href="ifram_folder/Sign_In.html" target="ifr">회원가입</a><p></p><a href="ifram_folder/lost.html" target="ifr">비밀번호 분실</a>
+	</form>
 	</aside>
 	<footer>2020.03.30 대덕인재개발원 042-1234-5678</footer>
 </div>
