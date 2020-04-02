@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href="../css/mystyle.css" rel="stylesheet" type="text/css">
+
+<script type="text/javascript">
+	function proc() {
+		
+		res ="";
+		do{
+			// 입력
+			a = prompt("입력하세요");
+			
+			// 출력 변수 누적
+			res += a + " ";
+			
+			
+			// 계속 할래?
+			r = confirm("계속 할래?");
+			if(!r) break;
+			
+		}while(true);
+		
+		document.getElementById('result1').innerHTML = res;
+	}
+</script>
+</head>
+<body>
+   <div class="box">
+      <h2>confirm</h2>
+      - 사용자의 질문에 의한 예/아니오 답변을 입력한다.<br>
+      - 버튼을 클릭하면 proc() 함수를 호출<br>
+      - prompt() 함수를 이용해서 숫자를 입력 받는다.
+      <button type="button" onclick="proc()">실행</button>
+      <div id="result1"></div>
+   </div>
+</body>
+</html>

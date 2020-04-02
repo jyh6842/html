@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href="../css/mystyle.css" rel="stylesheet" type="text/css">
+<script type="text/javascript">
+	function calc(a) {
+		
+		xx= parseInt(document.getElementById('x').value)
+		yy= parseInt(document.getElementById('y').value)
+		
+		if (a == '+') {
+			
+			vres = sum();
+			
+		}else if (a == '-') {
+			vres = sub()
+		}else if (a == '*') {
+			vres = multi()
+		}else if (a == '/') {
+			vres = divide()
+		}
+		res = xx +" "+ a +" " + yy + " = " + vres 
+		document.getElementById('result1').innerHTML = res;
+	}
+	
+	function sum(){
+		var aa = xx + yy;
+		return aa;
+	}
+	function sub(){
+		var sub = xx - yy;
+		return sub;
+	}
+	function multi(){
+		var mul = xx * yy;
+		return mul;
+	}
+	function divide(){
+		var div = xx / yy;
+		return div;
+	}
+	
+	function calc2(a) {
+		switch (a) {
+		case "+":
+			document.getElementById('result1').innerHTML = sum();
+			break;
+		case "-":
+			document.getElementById('result1').innerHTML = sub();
+			break;
+		case "*":
+			document.getElementById('result1').innerHTML = multi();
+			break;
+		case "/":
+			document.getElementById('result1').innerHTML = divide();
+			break;
+		}
+	}
+</script>
+</head>
+<body>
+	<div class="box">
+		입력 1 <input type="text" id ="x"><br>
+		입력 2 <input type="text" id ="y"><br>
+		<button onclick="calc('+')">실행+</button>
+		<button onclick="calc('-')">실행-</button>
+		<button onclick="calc('*')">실행*</button>
+		<button onclick="calc('/')">실행/</button>
+		
+		<br>
+
+		
+		<button onclick="calc2('+')">실행+</button>
+		<button onclick="calc2('-')">실행-</button>
+		<button onclick="calc2('*')">실행*</button>
+		<button onclick="calc2('/')">실행/</button>
+		<br>
+		<div id ="result1"></div>
+		
+	</div>
+</body>
+</html>
