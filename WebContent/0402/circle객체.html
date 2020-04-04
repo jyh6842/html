@@ -31,11 +31,14 @@ function circle2(r){
 	function proc1() {
 		// circle1 객체 이용
 		circle1.name = "동그라미";
+		
+		
 		// 출력
 		res = "이름 : " + circle1.name + "<br>";
 		res += " 반지름 : " + circle1.rad + "<br>";
 		res += " 면적 : " + circle1.getArea() + "<br>";
 		res += " 둘레 : " + circle1.getCircum() + "<br>";
+		
 		
 		document.getElementById('result1').innerHTML = res;
 		
@@ -44,7 +47,35 @@ function circle2(r){
 	
 	function proc2() {
 		// circle2 객체 이용
+		//c1 = new circle2();
+		//print(c1);
 		
+		// 반지름 입력하기
+		a = prompt("반지름을 입력하세요");
+		
+		c2 = new circle2(a);
+		print(c2);
+		
+		
+		
+		
+		
+	}
+	
+	function print(c){
+		c.name = "동글동글";
+		
+		c.aaa = function(){
+			alert("추가한 함수");
+		}
+		
+		res = "이름 : " + c.name + "<br>";
+		res += "반지름 : " + c.rad + "<br>";
+		res += "면적 : " + c.getArea + "<br>";
+		res += "둘레 : " + c.getCircum + "<br>";
+		c.aaa();
+		
+		document.getElementById('result1').innerHTML += res;
 	}
 </script>
 </head>
