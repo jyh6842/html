@@ -5,114 +5,109 @@
 <title>Insert title here</title>
 <link href="../css/mystyle.css" rel="stylesheet" type="text/css">
 <script type="text/javascript">
+	check = true;
+	var literal_rect = {
+		name1 : "",
+		wid1 : 0,
+		hei1 : 0,
+		getName : function() {
+			return this.name1;
+		},
+		setName : function() {
+			this.name1 = prompt("사각형의 이름을 입력하세요");
+		},
+		getWidth : function() {
+			return this.wid1;
+		},
+		setWidth : function() {
+			this.wid1 = parseInt(prompt("가로 길이를 입력하세요"));
+		},
+		getHeight : function() {
+			return this.hei1;
+		},
+		setHeight : function() {
+			this.hei1 = parseInt(prompt("세로의 길이를 입력하세요"));
+		},
 
+		getArea : function() {
+			return (this.wid1 * this.hei1);
+		},
 
-var literal = {
-    name : "리터럴",
-    width : 0,
-    height : 0,
+		getCircum : function() {
+			return 2 * (this.wid1 + this.hei1);
+		}
 
-    getName : function (){ return this.name},
-    setName : function (n){  this.name= parseInt(prompt("이름을 입력하세요"))},
-    getwidth : function (){ return this.width},
-    setwidth : function (w) { this.width = parseInt(prompt("가로의 길이를 입력하세요"))},
-    getheight : function () { return this.height},
-    setheight : function (h) { this.height = parseInt(prompt("세로의 길이를 입력하세요"))} ,
+	}
 
-    getArea : function(){ return this.width * this.height; },
-    getCircum : function () { return (this.width + this.height) * 2 ;}
-};
+	function constructor_rect(name2, wid2, hei2) {
+		this.name2 = name2;
+		this.wid2 = wid2;
+		this.hei2 = hei2;
 
+		this.getName = function() {
+			return this.name2;
+		}
+		this.getWid = function() {
+			return this.wid2;
+		}
+		this.getHei = function() {
+			return this.hei2;
+		}
+	}
 
-function constructor(n,w,h) {
-    this.name = n;
-    this.width = w;
-    this.height = h;
+	function proc1() {
+		check = true;
+		literal_rect.setName();
+		literal_rect.setWidth();
+		literal_rect.setHeight();
+		res = "";
+		res = " 이름 : " + literal_rect.getName() + "<br>";
+		res += "가로 : " + literal_rect.getWidth() + " cm" + "<br>";
+		res += "세로 : " + literal_rect.getHeight() + " cm" + "<br>";
+		res += "면적 : " + literal_rect.getArea() + " cm2" + "<br>";
+		res += "둘레 : " + literal_rect.getCircum() + " cm" + "<br>";
+		document.getElementById('result1').innerHTML = res;
+	}
+	function proc2() {
+		check = false;
+		n2 = prompt("이름을 입력하세요");
+		w2 = parseInt(prompt("가로의 길이를 입력하세요"));
+		h2 = parseInt(prompt("세로의 길이를 입력하세요"));
 
-    this.getName = function () {
-        return this.name;
-    },
-    this.setName = function(n){
-        this.name = n;
-    },
-    this.getheight = function() {
-        return this.width;
-    },
-    this.setheight = function(h){
-        this.height = h;
-    }
-    this.getwidth = function () {
-        return this.height;
-    },
-    this.setwidth = function(w){
-        this.width = w;
-    },
-    this.getArea = function(){
-        return this.width * this.height;
-    },
-    this.getCircum = function(){
-        return (this.width + this.height)* 2;
-    },
+		square2 = new constructor_rect(n2, w2, h2);
+		prin(square2);
+	}
+	
+	function proc3() {
+		if (check == true) {
+			literal_rect.wid1 += 2;
+			literal_rect.hei1 += 2;
+			res = "";
+			res = " 이름 : " + literal_rect.getName() + "<br>";
+			res += "가로 : " + literal_rect.getWidth() + " cm" + "<br>";
+			res += "세로 : " + literal_rect.getHeight() + " cm" + "<br>";
+			res += "면적 : " + literal_rect.getArea() + " cm2" + "<br>";
+			res += "둘레 : " + literal_rect.getCircum() + " cm" + "<br>";
+			document.getElementById('result1').innerHTML = res;
+		} else {
 
+			w2 = w2 + 2;
+			h2 += 2;
+			plus2 = new constructor_rect(n2, w2, h2);
+			prin(plus2);
+		}
+	}
 
+	function prin(v) {
+		res = "";
+		res = "이름 : " + v.getName() + "<br>";
+		res += "가로 : " + v.getWid() + " cm" + "<br>";
+		res += "세로 : " + v.getHei() + " cm" + "<br>";
+		res += "넓이 : " + v.getWid() * v.getHei() + " cm2" + "<br>";
+		res += "둘레 : " + 2 * (v.getWid() + v.getHei()) + " cm" + "<br>";
 
-}
-
-
-function proc1() {
-    check = true;
-    literal.setName();
-    literal.setWidth();
-    literal.setHeight();
-    res = "";
-    res =  "도형 이름 : " + literal.name + "<br>";
-    res += "가로길이 : " + literal.getWidth() + " cm" + "<br>";
-    res += "세로길이 : " + literal.getHeight() + " cm" + "<br>";
-    res += "면적 : " + literal.getArea() + " cm2" +"<br>";
-    res += "둘레 : " + literal.getCircum() + " cm" +"<br>";
-    document.getElementById('result1').innerHTML = res;
-  }
-
- function proc2(n, w, h){
-    check = false;
-    n = prompt("도형 이름:");
-    w = parseInt(prompt("가로길이:  (단위 : cm)"));
-    h = parseInt(prompt("세로길이:  (단위 : cm)"));
-    
-    constructor con= new constructor(n,w,h);
-    print(con);
- }
- 
- function proc3(){
-    if(check == true){
-       square.width += 2;
-       square.height += 2;
-       res = "";
-       res = " 이름 : " + square.name + "<br>";
-       res += "가로 : " + square.getWidth() + " cm" + "<br>";
-       res += "세로 : " + square.getHeight() + " cm" + "<br>";
-       res += "면적 : " + square.getArea() + " cm2" +"<br>";
-       res += "둘레 : " + square.getCircum() + " cm" +"<br>";
-       document.getElementById('result1').innerHTML = res;
-    }else{
-       w1 += 2;
-       h1 += 2;
-       con2 = new constructor(n,w1,h);
-       print(s);         
-    }
- }
- 
- function print(p) {
-    res = "";
-    res = " 이름 : " + p.name + "<br>";
-    res += "가로 : " + p.getWidth() + " cm" + "<br>";
-    res += "세로 : " + p.getHeight() + " cm" + "<br>";
-    res += "면적 : " + p.getArea() + " cm2" +"<br>";
-    res += "둘레 : " + p.getCircum() + " cm" +"<br>";
-    document.getElementById('result1').innerHTML = res;
- }
-
-
+		document.getElementById('result1').innerHTML = res;
+	}
 </script>
 </head>
 <body>
@@ -122,11 +117,7 @@ function proc1() {
 		<button type="button" onclick="proc3()">rect +2 증가(가로세로) 실행</button>
 		<div id="result1"></div>
 	</div>
-	
-		<div class="box">
-		<button type="button" onclick="proc4()">rect 리터럴 객체 실행</button>
-		<div id="result2"></div>
-	</div>
+
 
 
 </body>
