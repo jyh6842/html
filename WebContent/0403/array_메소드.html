@@ -5,185 +5,322 @@
 <title>Insert title here</title>
 <link href="../css/mystyle.css" type="text/css" rel="stylesheet">
 <script>
-  arr = ["사과", "바나나", "복숭아", "사과", "딸기" ,"포도","사과", "복숭아"]
+	arr = [ "사과", "바나나", "복숭아", "사과", "딸기", "포도", "사과", "복숭아" ]
 
-  function proc1(){
-     
-     a = prompt("찾을 데이타를 입력");
-     
-     idx =  arr.indexOf(a);
-     if(idx < 0 )  {
-         res = "찾는 " + a+ "님은 존재하지 않는 자료 입니다";
-     }else {
-        res = a + "님은 " + idx + "번째 있습니다";
-     }
-     
-     document.getElementById('result1').innerHTML = res;
-     
-  }
-  function proc2(){
-      a = prompt("찾을 데이타를 입력");
-     
-     idx =  arr.lastIndexOf(a);
-     if(idx < 0 )  {
-         res = "찾는 " + a+ "님은 존재하지 않는 자료 입니다";
-     }else {
-        res = a + "님은 " + idx + "번째 있습니다";
-     }
-     document.getElementById('result1').innerHTML = res;
-  }
-  function proc3(){
-     a = prompt("검색어 입력");
-     idx = 0;
-     res = "";
-     
-     check = true ;
-     do{
-      idx = arr.indexOf(a,  idx); 
-      
-      if(idx < 0) break;
-      res += a + "님은 " + idx + " 번째 있습니다 <br>";
-      idx ++;
-      check = false;    
-     }while(true);
-        
-     if(check) 
-          res = "찾는 " + a+ "님은 존재하지 않는 자료 입니다"; 
-     
-     document.getElementById('result1').innerHTML = res;
-  }
-  
-  function pushPro(){
-     res = "";
-     res +=  "원래 배열 : "  + arr + "<br>" ;
-     
-     a = prompt("추가할 데이타를 입력");
-     arr.push(a);
-     res += "추가배열 : " +  arr + "<br>";
-     
-     document.getElementById('result2').innerHTML = res;
-  }
-  function popPro(){
-     res = "";
-     res +=  "원래 배열 : "  + arr + "<br>" ;
-     
-     arr.pop();
-     
-      res += "삭제배열 : " +  arr + "<br>";
-     
-     document.getElementById('result2').innerHTML = res;
-  }
-  
-  function reversePro(){
-     res = "원래배열 : " + arr + "<br>"
-     arr.reverse();
-     res += "바뀐배열 : " + arr + "<br>;";
-     
-     document.getElementById('result3').innerHTML = res;
-  }
-  function slicePro(){
-     
-     res = "원래배열 : " + arr + "<br>"
-      
-    // newarr = arr.slice(2,5);
-    //바나나와 포도 사이의 데이타를 잘라서 가져오기 
-     a = arr.indexOf("바나나");
-     b = arr.indexOf("포도");
-     newarr = arr.slice(a, b);
-     
-     res += "새로운배열(slice(2,5)) : " + newarr + "<br>;";
-     document.getElementById('result3').innerHTML = res;
-  }
-  
-  function splicePro1(){
-         //
-         res ="원래배열 : " + arr + "<br>";
-         arr.splice(2,0, "파인애플", "키위" );
-         
-         res += ' arr.splice(2,0, "파인애플", "키위" )  ';
-         res += "수정된배열 : " + arr + "<br>";
-         
-        document.getElementById('result4').innerHTML = res;
-  }
-  function splicePro2(){
-     res ="원래배열 : " + arr + "<br>"; 
-     arr.splice(2,2, "망고", "자두");
-     
-     res += ' arr.splice(2,2, "망고", "자두" )  ';
-      res += " 수정된배열 : " + arr + "<br>";
-     document.getElementById('result5').innerHTML = res;
-      
-  }
-  function splicePro3(){
-      // 2번째 부터 2개를 삭제 
-     res ="원래배열 : " + arr + "<br>"; 
-     arr.splice(2,2);
-     
-     res += ' arr.splice(2,2)  ';
-      res += " 수정된배열 : " + arr + "<br>";
-     document.getElementById('result6').innerHTML = res;
-     
-  }
-  function splicePro4(){
-      //버튼 추가 - 삭제 데이타 입력 
-      //입력된 데이타를 삭제 
-      
-      
-  }
+	function proc1() {
+
+		a = prompt("찾을 데이타를 입력");
+
+		idx = arr.indexOf(a);
+		if (idx < 0) {
+			res = "찾는 " + a + "님은 존재하지 않는 자료 입니다";
+		} else {
+			res = a + "님은 " + idx + "번째 있습니다";
+		}
+
+		document.getElementById('result1').innerHTML = res;
+
+	}
+	function proc2() {
+		a = prompt("찾을 데이타를 입력");
+
+		idx = arr.lastIndexOf(a);
+		if (idx < 0) {
+			res = "찾는 " + a + "님은 존재하지 않는 자료 입니다";
+		} else {
+			res = a + "님은 " + idx + "번째 있습니다";
+		}
+		document.getElementById('result1').innerHTML = res;
+	}
+	function proc3() {
+		a = prompt("검색어 입력");
+		idx = 0;
+		res = "";
+
+		check = true;
+		do {
+			idx = arr.indexOf(a, idx);
+
+			if (idx < 0)
+				break;
+			res += a + "님은 " + idx + " 번째 있습니다 <br>";
+			idx++;
+			check = false;
+		} while (true);
+
+		if (check)
+			res = "찾는 " + a + "님은 존재하지 않는 자료 입니다";
+
+		document.getElementById('result1').innerHTML = res;
+	}
+
+	function pushPro() {
+		res = "";
+		res += "원래 배열 : " + arr + "<br>";
+
+		a = prompt("추가할 데이타를 입력");
+		arr.push(a);
+		res += "추가배열 : " + arr + "<br>";
+
+		document.getElementById('result2').innerHTML = res;
+	}
+	function popPro() {
+		res = "";
+		res += "원래 배열 : " + arr + "<br>";
+
+		arr.pop();
+
+		res += "삭제배열 : " + arr + "<br>";
+
+		document.getElementById('result2').innerHTML = res;
+	}
+
+	function reversePro() {
+		res = "원래배열 : " + arr + "<br>"
+		arr.reverse();
+		res += "바뀐배열 : " + arr + "<br>;";
+
+		document.getElementById('result3').innerHTML = res;
+	}
+	function slicePro() {
+
+		res = "원래배열 : " + arr + "<br>"
+
+		// newarr = arr.slice(2,5);
+		//바나나와 포도 사이의 데이타를 잘라서 가져오기 
+		a = arr.indexOf("바나나");
+		b = arr.indexOf("포도");
+		newarr = arr.slice(a, b);
+
+		res += "새로운배열(slice(2,5)) : " + newarr + "<br>;";
+		document.getElementById('result3').innerHTML = res;
+	}
+
+	function splicePro1() {
+		//
+		res = "원래배열 : " + arr + "<br>";
+		arr.splice(2, 0, "파인애플", "키위");
+
+		res += ' arr.splice(2,0, "파인애플", "키위" )  ';
+		res += "수정된배열 : " + arr + "<br>";
+
+		document.getElementById('result4').innerHTML = res;
+	}
+	function splicePro2() {
+		res = "원래배열 : " + arr + "<br>";
+		arr.splice(2, 2, "망고", "자두");
+
+		res += ' arr.splice(2,2, "망고", "자두" )  ';
+		res += " 수정된배열 : " + arr + "<br>";
+		document.getElementById('result5').innerHTML = res;
+
+	}
+	function splicePro3() {
+		// 2번째 부터 2개를 삭제 
+		res = "원래배열 : " + arr + "<br>";
+		arr.splice(2, 2);
+
+		res += ' arr.splice(2,2)  ';
+		res += " 수정된배열 : " + arr + "<br>";
+		document.getElementById('result6').innerHTML = res;
+
+	}
+
+	function splicePro4() {
+
+		res = "원래 배열 : " + arr + "<br>";
+
+		idx = 0;
+		check = false; // 데이터가 없을 경우 index = -1;
+
+		// 버튼 추가 - 삭제 데이타 입력
+		a = prompt("삭제 데이터 입력 : ");
+
+		do {
+			// 위치 찾기
+			idx = arr.indexOf(a, idx);
+			if (idx == -1)
+				break;
+			// 입력된 데이타를 삭제
+			arr.splice(idx, 1);
+			check = true;
+			idx++;
+		} while (true);
+
+		if (check == false) {
+			res += "찾는 데이터가 없습니다."
+		} else {
+			res += "삭제 배열(arr.splice(idx, 1)) : " + arr + "<br>";
+
+		}
+		document.getElementById('result7').innerHTML = res;
+
+	}
+
+	function sortProc1() {
+		arr = [ 211, 11, 100, 34, 314, 500, 58 ]
+
+		res = "원래 배열 : " + arr + "<br>";
+
+		arr.sort(); // 이렇게 하면 맨 앞자리 수부터 비교 한다. 100 -> 11 -> 211 -> 314 -> 34 이런식으로 정렬 된다.
+	
+
+		res += "바뀐 배열 : " + arr + "<br>";
+
+		document.getElementById('result8').innerHTML = res;
+
+	}
+	
+	function sortProc2() {
+		arr = [ 211, 11, 100, 34, 314, 500, 58 ]
+
+		res = "원래 배열 : " + arr + "<br>";
+
+		//arr.sort(); // 이렇게 하면 맨 앞자리 수부터 비교 한다. 100 -> 11 -> 211 -> 314 -> 34 이런식으로 정렬 된다.
+		arr.sort(function(a, b) { // 이렇게 파라미터 값을 받으면 이렇게 바뀜
+			return a - b; // 양수가 나오면 자리가 바뀜 음수가 나오면 안바꾸고
+		})
+
+		res += "바뀐 배열 : " + arr + "<br>";
+
+		document.getElementById('result8').innerHTML = res;
+
+	}
+	
+	function sortProc3() {
+		arr = [ 211, 11, 100, 34, 314, 500, 58 ]
+
+		res = "원래 배열 : " + arr + "<br>";
+
+		//arr.sort(); // 이렇게 하면 맨 앞자리 수부터 비교 한다. 100 -> 11 -> 211 -> 314 -> 34 이런식으로 정렬 된다.
+		arr.sort(function(a, b) { // 이렇게 파라미터 값을 받으면 이렇게 바뀜
+			return b-a; // 양수가 나오면 자리가 바뀜 음수가 나오면 안바꾸고
+			// b - a 하면 내림 차순
+		})
+
+		res += "바뀐 배열 : " + arr + "<br>";
+
+		document.getElementById('result8').innerHTML = res;
+
+	}
+	
+	function concatProc(){
+		arr2 = ["봄", "여름", "가울", "겨울"];
+		
+		res = arr.concat(arr2);
+		document.getElementById('result9').innerHTML = res;
+	}
+	
+	function joinProc(){
+		res = "원래 배열 : " + arr + "<br>";
+		
+		arr2 = arr.join("/");
+		res += "바뀐 배열 : " + arr2 + "<br>";
+		
+		res += "배열의 길이 : " + arr.length +"<br>";
+		res += "문자열 길이 : " + arr2.length +"<br>";
+		
+		print(arr);
+		
+		print(arr2);
+		
+		document.getElementById('result9').innerHTML = res;
+	}
+	
+	function print(a){
+		var res="";
+		for(i = 0; i< a.length; i++){
+			res += i + " 번째 : " + a[i] +"<br>";
+		}
+		document.getElementById('result10').innerHTML += res + "<br>";
+
+	}
 </script>
 </head>
 <body>
- <div class="box">
-   <h2>indexOf/lastIndexOf</h2>
-   arr = ["사과", "바나나", "복숭아", "사과", "딸기" ,"포도","사과", "복숭아"]<br>
-   indexOf(item,start) : item의 위치를 검색.<br> 
-                         start : 시작위치, 생략시 0번째부터 시작 <br> 
-   lastIndexOf(item) : item의 위치를 뒤에서 부터 검색 <br>
-   <button type="button" onclick="proc1()">indexOf</button> 
-   <button type="button" onclick="proc2()">lastIndexOf</button> 
-   <button type="button" onclick="proc3()">indexOf(여러개)</button> 
-    
-   <div id="result1"></div>
- </div>
- 
- 
-  <div class="box">
-   <h2>push/pop</h2>
-    push : 배열의 끝에 추가 <br>
-    pop : 배열의 끝에서 제거 <br>
-   <button type="button" onclick="pushPro()">push실행</button>
-   <button type="button" onclick="popPro()">pop실행</button>
-   
-   <div id="result2" ></div>
- </div>
- 
- <div class="box">
-   <h2>reverse/slice</h2>
-    reverse(): 배열의 순서를뒤집기 <br>
-    slice(start, end) : start end 사이의 값을 추출, 새로운 배열 만들기  <br>
-  
-   <button type="button" onclick="reversePro()">reverse실행</button>
-   <button type="button" onclick="slicePro()">slice실행</button>
-  
-   <div id="result3" ></div>
- </div>
- 
- 
- 
-<div class="box">
-   <h2>splice</h2>
-      splice()  : 배열 수정 <br>
-     - splice(idx, 0,새로운데이타) : 기존데이타 삭제하지 않고 새로운 데이타를 삽입 <br> 
-     - splice(idx, 삭제갯수,새로운데이타) : 기존데이타 삭제후 새로운 데이타를 삽입 <br>
-     - splice(idx, 삭제갯수) : 기존데이타를 삭제  <br>
-   <button type="button" onclick="splicePro1()">splice실행</button>
-   <button type="button" onclick="splicePro2()">splice실행</button>
-   <button type="button" onclick="splicePro3()">splice실행</button>
-   <div id="result4" ></div>
-   <div id="result5" ></div>
-   <div id="result6" ></div>
- </div> 
- 
+	<div class="box">
+		<h2>indexOf/lastIndexOf</h2>
+		arr = ["사과", "바나나", "복숭아", "사과", "딸기" ,"포도","사과", "복숭아"]<br>
+		indexOf(item,start) : item의 위치를 검색.<br> start : 시작위치, 생략시 0번째부터
+		시작 <br> lastIndexOf(item) : item의 위치를 뒤에서 부터 검색 <br>
+		<button type="button" onclick="proc1()">indexOf</button>
+		<button type="button" onclick="proc2()">lastIndexOf</button>
+		<button type="button" onclick="proc3()">indexOf(여러개)</button>
+
+		<div id="result1"></div>
+	</div>
+
+
+	<div class="box">
+		<h2>push/pop</h2>
+		push : 배열의 끝에 추가 <br> pop : 배열의 끝에서 제거 <br>
+		<button type="button" onclick="pushPro()">push실행</button>
+		<button type="button" onclick="popPro()">pop실행</button>
+
+		<div id="result2"></div>
+	</div>
+
+	<div class="box">
+		<h2>reverse/slice</h2>
+		reverse(): 배열의 순서를뒤집기 <br> slice(start, end) : start end 사이의 값을
+		추출, 새로운 배열 만들기 <br>
+
+		<button type="button" onclick="reversePro()">reverse실행</button>
+		<button type="button" onclick="slicePro()">slice실행</button>
+
+		<div id="result3"></div>
+	</div>
+
+
+
+	<div class="box">
+		<h2>splice</h2>
+		splice() : 배열 수정 <br> - splice(idx, 0, 새로운데이타) : 기존데이타 삭제하지 않고
+		새로운 데이타를 삽입 <br> - splice(idx, 삭제갯수, 새로운데이타) : 기존데이타 삭제후 새로운 데이타를
+		삽입 <br> - splice(idx, 삭제갯수) : 기존데이타를 삭제 <br> - splice(idx,
+		1) : 삭제할 데이터를 입력 받는다. <br>
+		<button type="button" onclick="splicePro1()">splice(idx,
+			0,새로운데이타) 실행</button>
+		<button type="button" onclick="splicePro2()">splice(idx,
+			삭제갯수,새로운데이타) 실행</button>
+		<button type="button" onclick="splicePro3()">splice(idx,
+			삭제갯수) 실행</button>
+		<button type="button" onclick="splicePro4()">splice(idx, 1)
+			실행</button>
+		<div id="result4"></div>
+		<div id="result5"></div>
+		<div id="result6"></div>
+		<div id="result7"></div>
+	</div>
+
+	<div class="box">
+		<h3>sort</h3>
+		arr = [ 211, 11, 100, 34, 314, 500, 58 ];<br>
+			- 자릿수 별로 정렬 : 100, 11, 211, 314, 34, 500, 58<br>
+			- 크기별로 오름차순 정렬 : 11, 34, 58, 100, 211, 314, 500<br>
+			sort(function(a,b)){<br>
+				return a-b; <br>
+			} <br>
+				- a-b의 결과 값이 + 일때 자리를 바꾼다.<br>
+				- b-a로 하면 자리가 바뀐다.<br>
+
+		<button onclick="sortProc1()">sort</button>
+		<button onclick="sortProc2()">sort 오름차순</button>
+		<button onclick="sortProc3()">sort 내림 차순</button>
+		<div id="result8"></div>
+	</div>
+	
+	
+	<div class = "box">
+		<h2>concat()/join</h2>
+		concat() : 여러개의 배열을 하나로 합치기<br>
+		join(구분자) : 하나의 배열에서 각 요소를 구분할 구분자로 구분한다. <br>
+		<button onclick = "concatProc()">concat</button>
+		<button onclick = "joinProc()">join</button>
+		<div id = "result9"></div>
+		<div id = "result10"></div>
+	</div>
+
 </body>
 </html>
 
