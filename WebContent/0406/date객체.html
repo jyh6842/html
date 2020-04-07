@@ -1,87 +1,163 @@
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link href="../css/mystyle.css" rel="stylesheet" type="text/css">
-<script type="text/javascript">
-	a1 = new Date();
-	function proc1() {
-		//a1 = new Date();
-		//a1 = new Date(456789153999);
-		//a1 = new Date("1900. 01. 10");
-		//a1 = new Date(2000, 05 - 1, 11, 12, 30);
 
-		res = a1.toLocaleString() + "<br>";
-		res += a1.toLocaleDateString() + "<br>";
-		document.getElementById('result1').innerHTML = res;
-	}
+<script>
+  a1 = new Date();
 
-	function proc2() {
-		//alert(a1.getDay());
-
-		day = a1.getDay();
-		switch (day) {
-		case 0:
-			res = "일요일";
-			break;
-		case 1:
-			res = "월요일";
-			break;
-		case 2:
-			res = "화요일";
-			break;
-		case 3:
-			res = "수요일";
-			break;
-		case 4:
-			res = "목요일";
-			break;
-		case 5:
-			res = "금요일";
-			break;
-		case 6:
-			res = "토요일";
-			break;
-
-		}
-
-		document.getElementById('result2').innerHTML = a1.toLocaleString()
-				+ "<br>";
-		document.getElementById('result2').innerHTML += res;
-	}
-
-	function proc3() {
-		arr = [ "일요일", "월요일", "화요일", "수요일", "목요일", "금요일", "토요일" ];
-
-		res = arr[a1.getDay()];
-
-		document.getElementById('result2').innerHTML = res;
-
-	}
+  function proc1(){
+    //a1 = new Date();
+    //a1 = new Date(134564697);
+    //a1 = new Date("1900,10,01")
+    a2 = new Date(2000, 05-1,11,12,30);
+    
+    res  = a2.toLocaleString() + "<br>";
+    res += a2.toLocaleDateString() + "<br>";
+    
+    document.getElementById("result1").innerHTML = res;
+  }
+  function proc2(){
+     // alert( a1.getDay());
+     
+     day = a1.getDay();
+     switch(day){
+     case 0:
+        res = "일요일";
+        break;
+     case 1:
+        res = "월요일";
+        break;
+     case 2:
+        res = "화요일";
+        break;
+     case 3:
+        res = "수요일";
+        break;
+     case 4:
+        res = "목요일";
+        break;
+     case 5:
+        res = "금요일";
+        break;
+     case 6:
+        res = "토요일";
+        break;
+     }
+     
+    document.getElementById('result2').innerHTML = a1.toLocaleString() + "<br>";
+    document.getElementById('result2').innerHTML += res;
+  }
+  
+  function proc3(){
+     
+     arr =["일요일","월요일","화요일","수요일","먹요일","금요일","토요일"] ;
+     
+     //arr[0], arr[1], arr[2]
+     //res = arr[a1.getDay()]
+     
+     day = a1.getDay();
+     res = arr[day];
+     
+     document.getElementById('result2').innerHTML = a1.toLocaleString() + "<br>";
+     document.getElementById('result2').innerHTML += res; 
+  }
+ function proc4(){
+    //태어난 날짜 
+    my = new Date("1996,08,31");
+    //m1 =  my.toLocaleDateString();
+    
+    //현재날짜 
+    today = new Date();
+    
+    //두 날짜 사이의 경과시간을 구한다 
+    m1 = my.getTime(); //millsec
+    m2 = today.getTime();
+    m3 = m2 - m1; // millsec
+    
+    res = " millsec  : " + m3 + "<br>";
+    res +=  "실제초  " + m3  / 1000 + "<br>"; //실제 초 
+    res += "실제분  " + m3 /1000 /60  + "<br>"; //실제분
+    res += "실제시간 " + m3 /1000 /60 /60 + "<br>"; 
+    res += "실제 날 수 " +  m3 /1000 /60 /60 /24 + "<br>";
+    res += "실제년 수 " +  m3 /1000 /60 /60 /24 /365 + "<br>"     
+    
+    document.getElementById('result4').innerHTML = res;
+ }
+ function proc5(){
+    today = new Date();
+    
+    //오늘의 millisec
+    to = today.getTime();
+    
+    //100일에 대한 milisec의 값을 구한다
+    m100 = 100 * 24 * 60 * 60 * 1000;
+    //오늘의 milisec에 100일의 millisec 를 더한다
+    tom100 = to + m100;
+    //구해진 millisec로부터 날짜를 구한다 - Date생성
+    a = new Date(tom100);
+    
+    res = "오늘 : " + today.toLocaleDateString() + "<br>";
+    res += "100일 후 : " + a.toLocaleDateString() + "<br>";
+    
+    
+    document.getElementById('result5').innerHTML = res;
+ }
 </script>
+
 </head>
 <body>
 
-	<div class="box">
-		<h2>date 객체</h2>
-		a1 = new Date(); a1 = new Date(456789153999);<br> a1 = new
-		Date("1900. 01. 10");<br> a1 = new Date(2000, 05-1, 11, 12, 30);<br>
-		= 월 설정시 실제 값보다 -1 해줘야 그 해당월의 값이 나온다.<br> 이유는 ? 월은 0월~11월가지 존재 하기
-		때문에<br>
-		<button type="button" onclick="proc1()">실행</button>
-		<div id="result1"></div>
-	</div>
+ <div class="box">
+   <h2>date객체</h2>
+    a1 = new Date();<br>
+   a1 = new Date(134564697);<br>
+   a1 = new Date("1900,10,01")<br>
+   a1 = new Date(2000, 05-1,11,12,30);<br>
+       = 월 설정시 실제값보다 -1 해준다 <br>
+       - 월은 0월~11월까지 존대 하기 때문에  <br>
+   <button type="button" onclick="proc1()">실행</button>
+   <div id="result1"></div>
+ </div>
+ 
+ <div class="box">
+   <h2>요일구하기</h2>
+    getDay() : 0:일요일~ 6:토요일 <br>
+    arr =["일요일","월요일","화요일","수요일","먹요일","금요일","토요일"]
+   <button type="button" onclick="proc2()">실행</button>
+   <button type="button" onclick="proc3()">배열실행</button>
+   <div id="result2"></div>
+ </div>
+ 
+ <div class="box">
+   <h2>경과시간구하기</h2>
+    getTime() : 결과값이 millsec로 반환된다   <br>
+    - 태어난 년도에서 오늘까지 경과날 수 구하기
+   <button type="button" onclick="proc4()">실행</button>
+   <div id="result4"></div>
+ </div>
+ 
+ <div class="box">
+   <h2>경과시간구하기</h2>
+    getTime() : 결과값이 millsec로 반환된다   <br>
+    - 오늘이 기준으로 100일 후의 날짜 구하기 
+   <button type="button" onclick="proc5()">실행</button>
+   <div id="result5"></div>
+ </div>
 
-	<div class="box">
-		<h2>요일 구하기</h2>
-		getDay() : 0 : 일요일 ~ 6 : 토요일 arr =
-		["일요일","수요일","화요일","수요일","목요일","금요일","토요일"]; <br>
-		<button type="button" onclick="proc2()">실행</button>
-		<button type="button" onclick="proc3()">실행</button>
-		<div id="result2"></div>
-	</div>
-
-
+ 
 </body>
+
+
+
+
+
+
+
+
+
+
+
 </html>
