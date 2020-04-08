@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href="../css/mystyle.css" rel="stylesheet" type="text/css">
+<script type="text/javascript">
+const randomNumber = (parseInt((Math.random() *100) + 1));
+count = 0;
+	function proc1() {
+		 answer = document.getElementById('number').value;
+		 count++;
+		 if(answer < randomNumber){
+			 document.getElementById('result1').innerHTML = "입력값이 작아요 횟수  : " + count;
+		 }else if(answer > randomNumber){
+			 document.getElementById('result1').innerHTML = "입력값이 커요 횟수  : " + count;
+		 }else {
+			 document.getElementById('result1').innerHTML = "정답 입니다. 횟수  : " + count;
+		 }
+		 
+		 
+		
+	}
+	
+	function proc2() {
+		comstr = ["가위", "바위", "보"];
+		
+		// 랜덤 발생
+		rand = parseInt(Math.random()*3);
+		
+		com = comstr[rand];
+		
+		// user 입력 prompt
+		user = prompt("가위 바위 보 중에서 하나를 입력하세요");
+		
+	}
+</script>
+</head>
+<body>
+
+<div class="box">
+	<h2>숫자를 추측해 봅시다. 몇번만에 맞췄을 까요?</h2>
+	<input type="text" id="number">
+	<button type="button" onclick="proc1()">숫자 추측 입력</button>
+	<div id = "result1"></div>
+</div>
+
+<div class="box">
+	<h2>가위 바위 보</h2>
+	<input type="text" id="number">
+	<button type="button" onclick="proc2()">가위 바위 보 추측 입력</button>
+	<div id = "result2"></div>
+</div>
+</body>
+</html>
