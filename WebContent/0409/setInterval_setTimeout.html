@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function proc1() {
+            // window.setTimeout(function(){
+            //     d1 = document.getElementById('result1');
+            //     d1.innerHTML = "안녕하세요 ~~"
+            //     d1.style.color = 'red';
+            // }, 1000);
+
+            window.setTimeout(funcall, 500);
+
+
+        }
+        function funcall() {
+            d1 = document.getElementById('result1');
+            d1.innerHTML = "여러분 오늘은 너무 졸리네요 ~~"
+            d1.style.color = 'red';
+        }
+
+        function proc2() {
+            document.getElementById('start').style.display = "none";
+            arr = ["Hello!!", "Happy~~", "따뜻한 커피 한잔 먹고 싶네요", "오늘의 점심은 맘스터치", "메뉴 : 딥치즈버거 세트"];
+
+            // 랜덤을 발생시키자. 0~5 , 6개
+
+            a = window.setInterval(function () {
+                console.log(a);
+                let random = parseInt(Math.random() * arr.length);
+                d2 = document.getElementById('result2');
+
+                cr = Math.floor(Math.random() * 256);
+                cg = Math.floor(Math.random() * 256);
+                cb = Math.floor(Math.random() * 256);
+
+                d2.style.color = 'rgb(' + cr + ',' + cg + ',' + cb + ')';
+
+                // 글자 크기를 랜덤 15~40
+                size = Math.floor(Math.random() * (40 - 15 + 1) + 15);
+                d2.style.fontSize = size + "px";
+                d2.innerHTML = arr[random];
+            }, 500);
+        }
+
+        function proc3() {
+            document.getElementById('start').style.display = "inline";
+            clearInterval(a); //한개만 종료 되는 것
+
+        }
+
+        function proc4() {
+            //bstart 버튼 감추기
+            b = document.getElementById('bstart').style.display = 'none';
+
+            aa = window.setInterval(function () {
+                // 랜덤 발생
+                ccr = parseInt(Math.random() * 256);
+                ccg = parseInt(Math.random() * 256);
+                ccb = parseInt(Math.random() * 256);
+
+                // 브라우저 배경 색 바꾸기
+                d3 = document.body;
+                d3.style.backgroundColor = 'rgb(' + ccr + ', ' + ccg + ', ' + ccb + ')';
+
+            }, 1000)
+        }
+
+        function proc5() {
+            //bstop
+            document.getElementById('bstart').style.display = "inline";
+            clearInterval(b); //한개만 종료 되는 것
+        }
+
+
+
+
+
+    </script>
+</head>
+
+<body>
+    <div class="box">
+        <h2>setTimeout</h2>
+        <button type="button" onclick="proc1()">실행</button>
+        <div id="result1"></div>
+    </div>
+
+
+    <div class="box">
+        <h2>setInterval</h2>
+        <button type="button" id="start" onclick="proc2()">실행</button>
+        <button type="button" id="stop" onclick="proc3()">종료</button>
+        <div id="result2"></div>
+    </div>
+
+
+    <div class="box">
+        <h2>setInterval</h2>
+        <button type="button" id="bstart" onclick="proc4()">실행</button>
+        <button type="button" id="bstop" onclick="proc4()">종료</button>
+        <div id="result3"></div>
+    </div>
+</body>
+
+</html>
