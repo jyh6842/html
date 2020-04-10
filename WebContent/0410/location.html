@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="../css/mystyle.css" rel="stylesheet" type="text/css">
+    
+    <script>
+        function proc1() {
+            res = "href : " + location.href + "<br>";
+            res += "protocol : " + location.protocol + "<br>";
+            res += "host : " + location.host + "<br>";
+            res += "hostname : " + location.hostname + "<br>";
+            res += "port : " + location.port + "<br>"
+            res += "pathname : " + location.pathname + "<br>";
+
+            document.getElementById('result1').innerHTML = res;
+
+            res = res.replace(/<br>/g, "\r\n");
+
+            // document.ff.area.value=res;
+            document.getElementById('area').value = res;
+        }
+
+
+        //==================================== 페이지 이동 ========================================
+
+        function proc2() {
+            location.href = "test.jsp?name==aa";
+        }
+
+        function goPage() {
+            // a 링크를 클릭햇을 때 페이지 이동
+            location.href = "test.jsp?name==aa";
+        }
+
+        function goPagePost(){
+            // document.ffpost.action = "testpost.jsp";
+            // document.ffpost.method = "post";
+            // document.ffpost.submit();
+
+            f = document.ffpost;
+            f.aciton = "testpost.jsp";
+            f.method = "post";
+            f.submit();
+            
+            
+        }
+
+        function goReplace(str){
+            location.replace(str); // 페이지 이동(단순이동이 아니라 현재 페이지를 대체(되돌아 올수 가 없다.)) - 뒤로 수행 불가
+        }
+        
+        function goReload(){
+            str = ["Happy~~ 금요일~", "Hello 금요일", "안녕 금요일.. ", "굿모닝 금요일", "금요일엔 맛있는 점심~~", "오늘의 주제는 금요일"];
+
+
+            // 랜덤
+            rand = parseInt(Math.random() * str.length);
+            
+            // str 배열의 랜덤번째를 선택
+            res = "<h2>"+str[rand]+"</h2>";
+
+            document.getElementById('result2').innerHTML = res;
+            document.getElementById('result2').style.color += res;  
+            
+            setTimeout(function() {
+				location.reload();
+			}, 1000);
+        }
+
+    </script>
+</head>
+
+<body>
+    <div class="box">
+        <h2>location 객체</h2>
+        URL의 정보를 얻어오는 객체 <br>
+        href : 전체 url <br>
+        port : 데이터 출입구 역할, 웹포트:8080(기본) 우리는 80으로 정했다. <br>
+        host : 서버<br>
+        hostname : 서버 이름<br>
+        pathname : host를 제외한 정보<br>
+        <button type="button" onclick="proc1()">실행</button>
+        <div id="result1"></div>
+
+        <form name="ff">
+            <button onclick="proc1()">실행</button>
+            <div id="result1"></div>
+            <textarea name="area" id="" cols="80" rows="10"></textarea>
+        </form>
+    </div>
+
+    <div class="box">
+        <h2>Location 객체</h2>
+        - 자동으로 특정 페이지로 이동하기
+        <button onclick="proc2()">페이지 이동</button>
+        <br><br>
+
+        -a 태그 이동
+        <a href="javascript:goPage()">공지사항 목록</a>
+        <br><br>
+
+        - 이벤트 사용(get 방식)
+        <button type="button" onclick="goPage()">공지사항 목록</button>
+        <br><br>
+
+        - 이벤트 사용(post 방식)
+        <form name="ffpost">
+            이름 <input type="text" name="name"><br>
+            <input type="hidden" name="id" value="a001">
+            <button onclick="goPagePost()" type="button">공지사항 목록</button>
+        </form>
+        <br><br>
+
+
+        - 새로운 문서로 대체 : .replace(URL)
+        <button onclick="goReplace('test.jsp')">공지사항 목록</button>
+        <!-- <button onclick="goReplace()">공지사항 목록</button> -->
+        <br><br>
+
+        - 현재 문서를 다시 로드
+        <button onclick="goReload()">페이지 재호출</button>
+        <div id = "result2"></div>
+
+    </div>
+
+</body>
+
+</html>

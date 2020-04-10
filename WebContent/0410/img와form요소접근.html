@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<link href="../css/mystyle.css" rel="stylesheet" type="text/css">
+	<style>
+		img {
+			width: 150px;
+			height: 120px;
+		}
+	</style>
+
+	<script>
+		function proc1() {
+			res = document.getElementById('name').value + "<br>";
+			res += document.getElementById('addr').value + "<br>";
+			res += document.getElementById('tel').value + "<br>";
+
+			res += document.getElementById('coff').src + "<br>";
+
+			document.getElementById('result1').innerHTML = res;
+
+		}
+
+		function proc2() {
+			// form 이름과 각 요소 이름
+			f = document.ff;
+
+			res = f.name.value + "<br>";
+			res += f.addr.value + "<br>";
+			res += f.addr.value + "<br>";
+			// 이미지는 form 이름을 쓰지 않는다. // name에 속한 걸 써야 한다.
+			res += document.coffee.src + "<br>";
+
+
+			document.getElementById('result1').innerHTML = res;
+
+		}
+
+	</script>
+
+</head>
+
+<body>
+
+
+	<div class="box">
+		<h2>HTML 요소 접근</h2>
+		id로 접근 : getElementBYId('id 이름') <br><br>
+		<button type="button" onclick="proc1()">id를 이용하여 실행</button>
+		<div id="result1"></div>
+		<br>
+		name 으로 접근 : <br>
+		1. form 이름이 없을 때 : document.getElementById('이름')[0]<br>
+		2. form 이름이 있을 때 : document.form이름.요소이름 => document.ff.addr ||
+		<br>이미지는 form 요소와 상관이 없어서 form으로 접근하지 않는다. 그래서
+		document.이미지이름 으로 접근한다. => document.src 로 접근한다.
+		<br>
+		id, name 모두 이미지를 접근하는 방법은 document.이미지아이디 으로 접근한다. => document.coff.src 로 한가지 밖에 없다.
+
+
+		배열의 인덱스를 주는 이유는 똑같은 이름이 있으면 사용한다.<br>
+		<button type="button" onclick="proc2()">name 이용하여 실행</button>
+		<form name="ff">
+			이름<input id="name" name="name"><br>
+			주소<input id="addr" name="addr"><br>
+			전화번호<input id="tel"><br>
+			<img id ="coff" name = "coffee" src = "../images/아메리카노.jpg">
+		</form>
+	</div>
+
+</body>
+
+</html>
