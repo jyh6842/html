@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href="../css/mystyle.css" rel="stylesheet" type="text/css">
+<script type="text/javascript">
+		arrImg = ['사자.jpg', '소우주.jpg', '대나무숲.jpg'];
+	function proc1() {
+		// 이미지 배열 구성
+		
+		// 랜덤 발생
+		imgrand = parseInt(Math.random()*arrImg.length);
+		
+		// 이미지로 접근해서 이 src를 변경
+		//document.getElementById('img1').src = '../images/'+ arrImg[imgrand];
+		document.querySelector("#img1").src = "../images/"+ arrImg[imgrand];
+		
+	}
+	function proc2(th) {
+		// 방법 1
+			//this
+			th.style.display = "none";
+		// 방법 2
+			//document.getElementById.style.display = "none";
+		a= setInterval(function() {
+		ran = Math.floor(Math.random() * arrImg.length);
+		document.querySelector('#img2').src = "../images/" + arrImg[ran];			
+		}, 1000)
+		// 랜덤 발생
+	}
+	function proc3() {
+		//document.getElementById('btn1').style.display = "inline";
+		document.querySelector('#btn1').style.display = "inline";
+		clearInterval(a);
+	}
+
+</script>
+<style type="text/css">
+   img{
+      width : 200px;
+      height : 200px;
+      border-radius : 50%;
+   }
+</style>
+
+
+</head>
+<body>
+
+<div class="box">
+	<h2>이미지 변경하기</h2>
+	- 버튼을 클릭할때마다 이미지를 변경한다.
+	- 이미지는 배열로 구성하고 랜덤으로 선택한다.
+	
+	<button type="button" onclick="proc1()">실행</button>
+	<div id = "result1">
+	<img id = "img1" src="../images/가구2.jpg" alt="">
+	</div>
+	   
+</div>
+
+<div class="box">
+	<h2>이미지 변경하기</h2>
+		
+	<button type="button" id="btn1" onclick="proc2(this)">실행</button>
+	<button type="button" onclick="proc3()">종료</button>
+	<div id = "result2">
+	<img id = "img2" src="../images/가구2.jpg" alt="">
+	</div>
+	   
+</div>
+
+</body>
+</html>
