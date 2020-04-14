@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href="../css/mystyle.css" rel="stylesheet" type="text/css">
+
+<style>
+/*    .tt{
+        text-align: center;
+    }
+    table{
+        border: 1px solid grey;
+    }
+    td{
+        border: 1px dotted grey;
+    }
+    table select{
+        width: 250px;
+        height: 300px;
+    }
+    */
+    /*
+    textarea {
+	padding : 10px;
+	font-size : 1.5em;
+	line-height: 20px;
+	}
+	*/
+	table{
+		/* border : 1px solid black; */
+	}
+	td{
+		width: 300px;
+		height: 40px;
+		text-align: center;
+		padding : 10px;
+	}
+	.button{
+		width : 80px;
+	}
+	button{
+		padding-bottom : 30px;
+	}
+	table select{
+		width : 300px;
+		height : 250px;
+	}
+</style>
+<script>
+
+	window.onload = function() {
+		f = document.ff3;
+		f.add.focus();
+	}
+	function addProc(){
+		addvalue = f.add.value;
+		opt = document.createElement('option');
+		opt.value = addvalue; // value 에도 줫음
+		opt.text = addvalue; // text에도 줬음
+		// select 안의 left로 옵션을 넣는다. // 자식으로 추가해야한다.
+		f.left.appendChild(opt);
+		
+		f.add.value = "";
+		
+		// 포커스 없어지면 안되니까 유지
+		f.add.focus();
+	}
+</script>
+
+</head>
+<body>
+
+	  <div class="box">
+    <h2></h2>
+    <form id="ff3">
+        <table>
+            <tr>
+                <td class="tt" colspan="3"><h1>Select객체</h1></td>
+            </tr>
+            <tr>
+                <td>
+                    <select name="left" size="15" multiple>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                    </select></td>
+
+                <td class="button">
+                    <button type="button" onclick="proc1()">&gt;</button>
+                    <br><br>
+                    <button type="button" onclick="proc2()">&gt;&gt;</button>
+                    <br><br>
+                    <button type="button" onclick="proc3()">&lt;</button>
+                    <br><br>
+                    <button type="button" onclick="proc4()">&lt;&lt;</button>
+                </td>
+                    <td>
+                        <select name="right" size="15" multiple>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                        </select>
+                    </td>
+                        </tr>
+                           
+                <tr>
+                    <td class="tt" colspan="3"><input type="text" name="add" id="txt1">
+                    <button id="result" type="button" onclick="proc5()">추가하기</button></td>
+                </tr>
+        </table>
+    </form>
+      </div>
+</body>
+</html>
+
+<!--select는 table의 후손 -->

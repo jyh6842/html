@@ -1,216 +1,96 @@
 <!DOCTYPE html>
 <html>
-
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link href="../css/mystyle.css" rel="stylesheet" type="text/css">
-<script type="text/javascript">
 
-	function proc1() {
-		vul = document.getElementsByTagName('ul')[0];
-
-		vli = vul.getElementsByTagName('li');
-
-		//vul = document.querySelector('ul');
-		//vli = vul.querySelectorAll('li');
-
-		str = ""
-
-		for (i = 0; i < vli.length; i++) {
-			str += vli[i].firstChild.data + "<br>";
-		}
-
-		document.getElementById('result1').innerHTML = str;
-
-	}
-
-	function proc2(th) {
-		//th : 클릭한 li의 객체
-
-		const lidata = th.firstChild.data;
-
-		// 일반 문자열 생성
-		// const vimg = "../images/" +lidata + ".jpg";
-
-		// 노드 생성(element요소 추가, 태그 생성)
-		let vimg = document.createElement("img");
-		vimg.src = "../images/" + lidata + ".jpg";
-		vimg.width = 100;
-		vimg.height = 100;
-
-		th.appendChild(vimg);
-	}
-
-	function proc3(h) {
-		// h : hello ~ 문자열을 받을 변수
-		// result3 에 출력
-		// document.getElementById('result3').innerHTML = h;
-
-		// textNode 생성
-		// p 태그를 생성
-		// p 태그에 textNode를 추가
-		// p 태그를 result3에 추가
-
-		txt = document.createTextNode(h);
-		ptag = document.createElement('p'); /* 태그 이름 ' ' 안에 */
-		ptag.appendChild(txt);
-		document.querySelector('#result3').appendChild(ptag);
-
-	}
-
-	function proc4() {
-		str = [ "Happy", "Hello", "Good Moring", "Hi~", "Bye~", "좋은 아침" ]
-
-		// 0~5 사이의 랜덤 발생 str[0] str[5] str[3] str[2]
-		rand = parseInt(Math.random() * str.length);
-		txt = document.createTextNode(str[rand]);
-		ptag = document.createElement('p');
-		ptag.appendChild(txt);
-		document.querySelector('#result4').appendChild(ptag);
-	}
-
-	function proc5() {
-		// 삭제할 대상을 찾는다.
-		// 부모 요소 = 
-		parent = document.querySelector("#result4");
-
-		// 자식노드 = 
-		child = parent.lastChild; // firstChild	
-		// 부모 요소.removeChild(자식노드)
-		parent.removeChild(child);
-
-	}
-
-	function proc6() {
-		str = [ "Happy", "Hello", "Good Moring", "Hi~", "Bye~", "좋은 아침" ];
-		
-		//proc4 과 같은 방식
-		rand = parseInt(Math.random() * str.length);
-		txt = document.createTextNode(str[rand]);
-		// button 태그 생성, text - '삭제'라는 글씨가 들어가도록
-		btn1 = document.createElement('button');
-		text = document.createTextNode('삭제');
-		btn1.appendChild(text);
-		
-		
-		
-		ptag = document.createElement('p');
-		ptag.appendChild(txt);
-		// ptag에 button을 추가
-		ptag.appendChild(btn1);
-		
-		document.querySelector('#result5').appendChild(ptag);
-		
-		
-		// 삭제하기
-		// 새로운 삭제 버튼의 이벤트
-		// 삭제할 대상 찾기
-		btn1.onclick = function(){
-			// 삭제할 버튼의 부모 검색
-			ptag = this.parentNode;  //onclick 한 버튼을 this가 가리킨다. // ptag가 삭제할 대상 // result5 번의 자식임
-			
-			parent = document.getElementById('result5');
-			
-			parent.removeChild(ptag);
-		}
-		
-		
-		
-		
-		
-	}
+<script>
+  window.onload = function(){
+	 f =   document.ff3; 
+	 f.add.focus();
+  }
+  function addProc(){
+	 addvalue =  f.add.value;
+	 if(addvalue.trim().length <1 ){
+		 alert("추가 내용 입력하세요");
+		 f.add.focus();
+		 return false;
+	 }
+	 opt = document.createElement('option');
+	 opt.value =addvalue ;
+	 opt.text = addvalue;
+	 
+	 f.left.appendChild(opt);
+	 
+	 f.add.value = "";
+	 f.add.focus();
+  }
 </script>
-</head>
 
+<style>
+
+	table{
+		/* border : 1px solid black; */
+	}
+	td{
+		width: 250px;
+		height: 40px;
+		text-align: center;
+		padding : 10px;
+	}
+	.button{
+		width : 50px;
+	}
+	button{
+		padding-bottom : 30px;
+	}
+	table select{
+		width : 200px;
+		height : 250px;
+	}
+  .tt {
+    text-align: center;
+  }
+  
+</style>
+</head>
 <body>
 
-	<pre>
-   요소 접근하기
-   id로 접근 : 1. document.getElementById("result1");
-          2. document.querySelector("#id"); <!-- 아이디라는 명시가 위와 다르게 없다. 그래서 #으로 아이디라는 표시를 해준다. -->
-   
-   class로 접근 : 1.  document.getElementClassName("");
-             2.  document.querySelector(".id");  <!-- 처음 나오는 class -->
-             3.  document.querySelectorAll(".id"); <!-- 모든 class -->  
-   
-   tag이름으로 접근 : 1. document.getElementByTagName("ul")[0];
-              2. document.querySelector("ul");
-   
-   name으로 접근 : document.getElementsByName("ff")[0];
-   form의 name을 통해서 접근 : document.ff.str      <!-- ff는 form name  -->
-   
-    id로 접근  : document.getElementById('result1')
- 	class접근  :  document.getElementsClassName('aa')[0]
- 	tag이름으로 접근  :  document.getElementsByTagName('ul')[0]
- 	name으로 접근   : document.getElementsByName('addr')[0]
- 	form 의 name(ff)을 통해서 접근 : document.ff.addr
- 
- 	document.querySelector('#aa')
- 	document.querySelector('.box')
- 	document.querySelector('.aa')
- 	document.querySelector('button')
- 	document.querySelectorAll('.box')
-   
-   
-   
-</pre>
-
-	<div class="box">
-		<h2 class="aa">li의 내용 가져오기</h2>
-		- firstChild - Object[text] <br> - firstChild.data - 실제 값<br>
-		- firstChild.nodeValue - 실제 값<br>
-		<ul>
-			<li>매화꽃</li>
-			<li>산수유</li>
-			<li>국화</li>
-			<li>라일락</li>
-		</ul>
-		<button type="button" onclick="proc1()">실행</button>
-		<div id="result1"></div>
+ <div class="box">
+		<h2></h2>
+		<form name="ff3">
+			<table>
+				<tr>
+					<td class="tt" colspan="3"><h2>Select객체 예제</h2></td>
+				</tr>
+				<tr>
+					<td class="td1">
+						<select name="left" size="15" multiple>
+						</select>
+					</td>
+					<td class="button">
+						<button type="button" onclick="">&gt;</button><br><br>
+						<button type="button" onclick="">&gt;&gt;</button><br><br>
+						<button type="button" onclick="">&lt;</button><br><br>
+						<button type="button" onclick="">&lt;&lt;</button><br><br>
+					</td>
+					<td class="td2">
+						 <select name="right" size="15" multiple>
+						 </select>
+					</td>
+				</tr>
+				<tr>
+					<td  class="tt" colspan="3">
+						<input type="text" size="20" name="add">
+						<button type="button" onclick="addProc()">추가하기</button>
+					</td>
+				</tr>
+			</table>
+		</form>
 	</div>
-
-
-	<div class="box">
-		<h2 class="aa">li의 내용으로 이미지 출력</h2>
-		- firstChild - Object[text] <br> - firstChild.data - 실제 값<br>
-		- firstChild.nodeValue - 실제 값<br> - 새로운 태그 생성
-		document.createElement('img')<br> - 속성 설정 :vimg.src = ""
-		vimg.width= "" vimg.height ="" vimg.alt = "";<br> - li에 추가 :
-		th.appendChild(vimg);<br>
-		<ul>
-			<li onclick="proc2(this)">매화</li>
-			<li onclick="proc2(this)">산수유</li>
-			<li onclick="proc2(this)">국화</li>
-			<li onclick="proc2(this)">벚꽃</li>
-		</ul>
-	</div>
-
-	<div class="box">
-		<h2 class="aa">새로운 문자열 생성</h2>
-		<br>
-		<button type="button" onclick="proc3('hello~')">실행</button>
-		<div id="result3">
-			<p>hello~</p>
-		</div>
-	</div>
-
-	<div class="box">
-		<h2 class="aa">새로운 문자열 생성</h2>
-		버튼을 클릭하면 랜덤으로 발생하는 문자열 생성<br> 버튼을 클릭하면 양쪽 끝 중에 한 곳에서 삭제되는 버튼 <br>
-		<button type="button" onclick="proc4()">추가</button>
-		<button type="button" onclick="proc5()">삭제</button>
-		<div id="result4"></div>
-	</div>
-	
-	<div class="box">
-		<h2 class="aa">새로운 문자열 생성</h2>
-		버튼을 클릭하면 랜덤으로 발생하는 문자열 생성<br> 버튼을 클릭하면 양쪽 끝 중에 한 곳에서 삭제되는 버튼 <br>
-		<button type="button" onclick="proc6()">추가/삭제</button>
-		<div id="result5"></div>
-	</div>
-
-
 </body>
-
 </html>
+
+
+
