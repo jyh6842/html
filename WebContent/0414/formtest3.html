@@ -4,124 +4,185 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link href="../css/mystyle.css" rel="stylesheet" type="text/css">
-
 <style>
-/*    .tt{
-        text-align: center;
-    }
-    table{
-        border: 1px solid grey;
-    }
-    td{
-        border: 1px dotted grey;
-    }
-    table select{
-        width: 250px;
-        height: 300px;
-    }
-    */
-    /*
-    textarea {
-	padding : 10px;
-	font-size : 1.5em;
-	line-height: 20px;
-	}
-	*/
-	table{
-		/* border : 1px solid black; */
-	}
-	td{
-		width: 300px;
-		height: 40px;
-		text-align: center;
-		padding : 10px;
-	}
-	.button{
-		width : 80px;
-	}
-	button{
-		padding-bottom : 30px;
-	}
-	table select{
-		width : 300px;
-		height : 250px;
-	}
+
+
+   table{
+      /* border : 1px solid black; */
+   }
+   td{
+      width: 250px;
+      height: 40px;
+      text-align: center;
+      padding : 10px;
+   }
+   .button{
+      width : 50px;
+   }
+   button{
+      padding-bottom : 30px;
+   }
+   table select{
+      width : 200px;
+      height : 250px;
+   }
+  .tt {
+    text-align: center;
+  }
+  
 </style>
 <script>
-
 	window.onload = function() {
 		f = document.ff3;
 		f.add.focus();
 	}
-	function addProc(){
+
+	function addProc() {
 		addvalue = f.add.value;
 		opt = document.createElement('option');
 		opt.value = addvalue; // value 에도 줫음
 		opt.text = addvalue; // text에도 줬음
 		// select 안의 left로 옵션을 넣는다. // 자식으로 추가해야한다.
 		f.left.appendChild(opt);
-		
+
 		f.add.value = "";
-		
+
 		// 포커스 없어지면 안되니까 유지
 		f.add.focus();
 	}
+
+	function toRight() {
+		// 왼쪽에서 선택(선택한 요소의 번째)해서 오른쪽으로 보내기
+		idx = f.left.selectedIndex;
+
+		// 선택되지 않은 경우
+		if (idx == -1) {
+			alert("선택하세요");
+			return false;
+		}
+		// 선택 된 경우 - 선택위치의 값을 가져온다.
+		let lvalue = f.left.options[idx].value;
+
+		// 선택값을 오른쪽으로 보낸다. - option 생성
+		opt = document.createElement('option');
+		opt.value = lvalue;
+		opt.text = lvalue;
+
+		// 오른쪽에 추가
+		f.right.appendChild(opt);
+
+		// 왼쪽에서 제거한다.
+		f.left.removeChild(f.left.options[idx]);
+	}
+	function toRightAll() {
+
+		// 왼쪽의 데이터의 개수 구하기
+		const leng = f.left.length;
+		
+		for (let i = 0; i < leng; i++) {
+			// 왼쪽의 값을 가져오기
+			let lvalue = f.left.options[0].value;
+			
+			let opt = document.createElement('option');
+			opt.value = lvalue;
+			opt.text = lvalue;
+			
+			// 어디에다가 option을 만든다고? 추가한다고? 오른족에 추가
+			f.right.appendChild(opt);
+			
+			// 이제 왼쪽에 있는 값 삭제
+			f.left.removeChild(f.left.options[0]);
+			
+			
+		}
+	}
+	function toLeft() {
+		// 선택한 인덱스 값 가져오기
+		idx = f.right.selectedIndex;
+		
+		// 선택되지 않은 경우
+		if(idx == -1){
+			alert("오른쪽에서 선택하세요");
+			return;
+		}
+		
+		// 선택한 값 인덱스 가져오기
+		rvalue = f.right.options[idx].value;
+		
+		// 선택한 값 왼쪽으로 보내기 - option을 생성해야한다.
+		opt = document.createElement('option');
+		opt.value = rvalue;
+		opt.text = rvalue;
+		
+		// 왼쪽에 추가
+		f.left.appendChild(opt);
+		
+		// 오른쪽에서 제거한다.
+		f.right.removeChild(f.right.options[idx]);
+		
+		
+	}
+	function toLeftAll() {
+		const leng = f.right.length;
+		
+		for (let i = 0; i < leng; i++) {
+			// 오른쪽 값 가져오기
+			let rvalue = f.right.options[0].value;
+			
+			// 왼쪽에 값을 추가하기 위해 option 태그 만들어주기
+			let opt = document.createElement('option');
+			opt.value = rvalue;
+			opt.text = rvalue;
+			
+			// 왼쪽에 추가하기
+			f.left.appendChild(opt);
+			
+			// 오른쪽에서 제거한다.
+			f.right.removeChild(f.right.options[0]);
+			
+			
+			
+		}
+	}
 </script>
+
 
 </head>
 <body>
 
-	  <div class="box">
-    <h2></h2>
-    <form id="ff3">
-        <table>
+ <div class="box">
+      <h2></h2>
+      <form name="ff3">
+         <table>
             <tr>
-                <td class="tt" colspan="3"><h1>Select객체</h1></td>
+               <td class="tt" colspan="3"><h2>Select객체 예제</h2></td>
             </tr>
             <tr>
-                <td>
-                    <select name="left" size="15" multiple>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                    </select></td>
-
-                <td class="button">
-                    <button type="button" onclick="proc1()">&gt;</button>
-                    <br><br>
-                    <button type="button" onclick="proc2()">&gt;&gt;</button>
-                    <br><br>
-                    <button type="button" onclick="proc3()">&lt;</button>
-                    <br><br>
-                    <button type="button" onclick="proc4()">&lt;&lt;</button>
-                </td>
-                    <td>
-                        <select name="right" size="15" multiple>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                            <option value="6">6</option>
-                            <option value="7">7</option>
-                            <option value="8">8</option>
-                        </select>
-                    </td>
-                        </tr>
-                           
-                <tr>
-                    <td class="tt" colspan="3"><input type="text" name="add" id="txt1">
-                    <button id="result" type="button" onclick="proc5()">추가하기</button></td>
-                </tr>
-        </table>
-    </form>
-      </div>
+               <td class="td1">
+                  <select name="left" size="15" multiple>
+                  </select>
+               </td>
+               <td class="button">
+                  <button type="button" onclick="toRight()">&gt;</button><br><br>
+                  <button type="button" onclick="toRightAll()">&gt;&gt;</button><br><br>
+                  <button type="button" onclick="toLeft()">&lt;</button><br><br>
+                  <button type="button" onclick="toLeftAll()">&lt;&lt;</button><br><br>
+               </td>
+               <td class="td2">
+                   <select name="right" size="15" multiple>
+                   
+                   </select>
+               </td>
+            </tr>
+            <tr>
+               <td  class="tt" colspan="3">
+                  <input type="text" size="20" name="add">
+                  <button type="button" onclick="addProc()">추가하기</button>
+               </td>
+            </tr>
+         </table>
+      </form>
+   </div>
 </body>
 </html>
 
-<!--select는 table의 후손 -->
