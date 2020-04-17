@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href="../css/mystyle.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+	img {
+		width : 100px;
+		height: 100px;
+	
+	}
+	
+</style>
+
+
+
+<script type="text/javascript">
+
+function change(c){
+	document.body.style.backgroundColor = c;
+}
+
+function clickProc(){
+	document.querySelector("#btn1").style.backgroundColor = "crimson";
+}
+
+function downProc(){
+	document.getElementById('btn2').style.fontSize = "1.5em";
+}
+function upProc(){
+	document.getElementById('btn3').style.color = "red";
+}
+function dblProc(){
+	document.getElementById('txt').style.fontSize = "2.0em";
+}
+function overProc(){
+	document.querySelector('#txt2').style.display = "none";
+}
+function outProc(){
+	document.querySelector('#txt2').style.display = "inline";
+}
+function imgdbl(th){
+	// th : this 매개변수를 받은 변수, 클릭한 이미지 객체를 나타낸다.
+	th.style.display="none"; // 내가 더블 클릭한 이미지
+	
+	let check = true;
+	const imga = document.querySelectorAll('img');
+	
+	for (let i = 0; i < imga.length; i++) {
+		if(imga[i].style.display != "none") check = false; 
+	}
+	
+	if(check){
+		setTimeout(()=>{
+			for (let i = 0; i < imga.length; i++) {
+				imga[i].style.display = "inline";	
+			}
+		}, 500)
+	}
+	
+	/* console.log('img.visible'.length); //왜 11 만 console 창에 나올까? 나는 img 5개 했는데??
+	
+	setTimeout(function(){
+		imgs = document.getElementsByTagName('img');
+		for (let i = 0; i < imgs.length; i++) {
+			imgs[i].style.display = "inline";
+		}
+	}, 1000);
+ */	
+	
+}
+
+
+</script>
+
+</head>
+<body>
+
+<div class="box">
+	<h2>매개변수를 이용하여 값 변경하기</h2>
+	name 값이 같아야 type이 radio 속성을 가진 애들을 한 그룹으로 묶어 값이 같은 name 을 가진 친구들을 인식할수 있도록 한다.
+	<input type="radio" name = "color" onclick="change('blue')"> 파랑색
+	<input type="radio" name = "color" onclick="change('pink')"> 핑크
+	<input type="radio" name = "color" onclick="change('orange')"> 오렌지
+	<input type="radio" name = "color" onclick="change('green')"> 그린
+	
+	<div id = "result1"></div>
+</div>
+
+
+<div class="box">
+	<h2>마우스 이벤트</h2>
+	<input id="btn1" type="button" value="클릭하세요" onclick= "clickProc()"> 
+	<input id="btn2" type="button" value="눌러보세요" onmousedown = "downProc()"> 
+	<input id="btn3" type="button" value="눌렀다가 놓으세요" onmouseup = "upProc()"> 
+	<input id="txt" type="text" value = "안녕하세요" ondblclick = "dblProc()">	
+	<input id="txt2" type="text" value = "안녕하세요" onmouseover = "overProc()" onmouseout="outProc()">	
+	<div id = "result1"></div>
+</div>
+
+
+
+<div class="box">
+	<h2>마우스 이벤트</h2>
+	
+	<img src ="../images/Koala.jpg" alt = "" ondblclick="imgdbl(this)">
+	<img src ="../images/Lighthouse.jpg" alt = "" ondblclick="imgdbl(this)">
+	<img src ="../images/maxresdefault.jpg" alt = "" ondblclick="imgdbl(this)">
+	<img src ="../images/Penguins.jpg" alt = "" ondblclick="imgdbl(this)">
+	<img src ="../images/Sony1.jpg" alt = "" ondblclick="imgdbl(this)">
+	
+	
+	
+</div>
+
+
+</body>
+</html>

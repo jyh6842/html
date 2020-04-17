@@ -10,6 +10,7 @@
    window.onload = function() {
       db = document.board;
       num = 0;
+      document.getElementById('modi').style.display = "none"; // 작성하기 버튼 숨기기
    }
    function proc1() {
       num++;
@@ -31,7 +32,7 @@
 
       // 새로운 tr생성
       newtr = document.createElement("tr");
-      newtr.setAttribute('onclick', view(this)); // this : 클릭한 tr 객체이다.
+      newtr.setAttribute('onclick', 'view(this)'); // this : 클릭한 tr 객체이다.
       
       newtd1 = document.createElement("td");
       newtxt1 = document.createTextNode(num);
@@ -75,16 +76,64 @@
       db.writer.focus();
    }
 
-function view(ctr){
+function view(ctr){ // 수정하기 위해서
+	
+	document.getElementById('wr').style.display = "none"; // 작성하기 버튼 숨기기
+	document.getElementById('modi').style.display = "inline";
+	document.getElementById('modi').style.background = "orange";
+	
 	// ctr : 클릭한 tr 이고
 	// tdlist : 클릭한 tr에서 각 td 를 검색한다.
-	tdlist = ctr.getElementByTagName('td');
+	tdlist = ctr.getElementsByTagName('td');
 	
 	// 각 td의 내용을 다 가져와서 form의 영역에 출력한다.
 	db.num.value = tdlist[0].textContent; // 이게 있어야 나중에 수정할 수 있다.
 	db.writer.value = tdlist[1].textContent;	
 	db.title.value = tdlist[2].textContent;
-	db.content.value  = tdlist[6].textContent;
+	db.content.value  = tdlist[5].textContent;
+	
+}
+
+function modiProc() {
+	// 수정버튼 클릭했을 때
+	
+	// 수정한 내용을 가져온다. - 번호(숨겨짐 바뀌지 않음), 이름, 제목, 내용
+	nvalue = db.num.value;
+	wvalue = db.writer.value;
+	tvalue = db.title.value;
+	cvalue = db.content.value;
+	
+	// cvalue 가 10 글자 이상이면 10글자만 선택해서 저장
+	cont10 = cvalue;
+	if(cvalue.length > 10){
+		cont10 = cvalue.substring(0, 10) + "......";
+	}
+	
+	// 날짜
+	today = new Date();
+	dvalue = today.toLocaleDateString();
+	
+	// 수정한 내용을 오른쪽 테이블로 출력 되도록 - tr의 인덱스 번째을 대상으로 수정한다.
+	trtag = document.getElementsByTagName('tr')[nvalue];
+	trtag.getElementsByTagName('td')[1].textContent = wvalue;
+	trtag.getElementsByTagName('td')[2].textContent = tvalue;
+	trtag.getElementsByTagName('td')[3].textContent = cont10;
+	trtag.getElementsByTagName('td')[4].textContent = dvalue;
+	trtag.getElementsByTagName('td')[5].textContent = cvalue;
+	
+	
+	// 수정 완료 후에 입력 내용 지우기
+	nvalue = db.writer.value = "";
+	nvalue = db.title.value = "";
+	nvalue = db.content.value = "";
+	nvalue = db.writer.focus();
+	
+	
+	// 수정완료 후 버튼을 작성하기로 변경하자
+	document.getElementById('wr').style.display = "inline"; // 작성하기 버튼 숨기기
+	document.getElementById('modi').style.display = "none";
+	
+	
 	
 }
 
@@ -161,7 +210,8 @@ textarea {
          <br> 
          <br>
          <div id="right">
-            <button type="button" onclick="proc1()">작성하기</button>
+            <button type="button" id="modi" onclick="modiProc()">수정하기</button>
+            <button type="button" id="wr" onclick="proc1()">작성하기</button>
             <button type="reset">취소하기</button>
          </div>
          <br>
