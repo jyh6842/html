@@ -39,6 +39,12 @@
 
 	function addProc() {
 		addvalue = f.add.value;
+		
+		if(addvalue.trim().length < 1){
+			alert("공백 발생");
+			return;
+		}
+		
 		opt = document.createElement('option');
 		opt.value = addvalue; // value 에도 줫음
 		opt.text = addvalue; // text에도 줬음

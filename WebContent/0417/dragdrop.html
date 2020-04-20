@@ -30,9 +30,21 @@ function startProc(){
 	event.dataTransfer.setData("targetImg", event.target.id);
 }
 function dropProc(){
-	//alert(event.target); //result 이벤트가 동작하는 태그요소를 알려준다.
+	alert(event.target.tagName); //result 이벤트가 동작하는 태그요소를 알려준다.
 	imgid = event.dataTransfer.getData("targetImg");
+	
+	if(event.target.tagName == 'DIV'){// 이미지를 div 에 드롭 할때
+	// imgid = event.dataTransfer.getData("targetImg");
 	event.target.appendChild(document.getElementById(imgid));
+	}
+	else {
+		// 이미지위에 다른 이미지를 drop 할때
+		// event.target.tagName == img 이면?
+		// img 의 부모가 필요하다.
+		event.target.parentNode.appendChild(document.getElementById(imgid));
+		
+		
+	}
 }
 
 </script>

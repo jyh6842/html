@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href="../css/mystyle.css" rel="stylesheet" type="text/css">
+<script src="../js/formcheck.js" type="text/javascript"></script>
+<script type="text/javascript">
+	function proc1(){
+		if(datacheck()){
+			// alert("성공");
+			res = namevalue + "님<br>";
+			res += "정상처리되었습니다.";
+			document.getElementById('result1').innerHTML = res;
+		}
+	}
+</script>
+
+
+<style type="text/css">
+	label{
+		display: inline-block;
+		width : 100px;
+		height: 30px;
+	}
+</style>
+</head>
+<body>
+   <div class = "box">
+      <h2>정규식</h2>
+	전체(입력) match(패턴문자, 정규식)<br>
+          - 정규식에 맞지 않으면 null을 리턴<br>
+          - 정규식에 맞는 문자열이 있으면 문자열을 리턴<br><br>
+         패턴문자/정규식.test(전체(입력)문자열) :  <br>
+          - 정규식에 맞으면 true, 맞지 않으면  false리턴<br><br>
+         패턴문자/정규식.exec(전체(입력)문자열) : <br>
+        - 정규식에 맞지 않으면 null, 맞으면 문자열 리턴<br><br>
+      <form name = "ff">
+         <label>아이디 : </label>
+         <input type = "text" name = "id"><br>
+         
+         <label>이름 : </label>
+         <input type = "text" name = "name"><br>
+         
+         <label>비밀번호 : </label>
+         <input type = "password" name = "pass"><br>
+         
+         <label>이메일 : </label>
+         <input type = "text" name = "email"><br>
+         
+         <label>전화번호 : </label>
+         <input type = "text" name = "tel"><br>
+      </form>
+      <button type = "button" onclick ="proc1()">실행</button>
+      <div id = "result1"></div>
+   </div>
+</body>
+</html>
