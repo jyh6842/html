@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href="../css/mystyle.css" rel="stylesheet" type="text/css">
+<script type="text/javascript">
+	window.onload = function() {
+
+	}
+	function proc1() {
+		// vfile 변수는 file 객체 변수이다
+		vfile = document.getElementById('infile').files[0]; // 기본적으로 여러개를 선택할 수 있기 때문에 배열로 들어간다. multi가 아니어도 (한개가 기본이어도) 0번째 인덱스에 들어간다.
+
+		// 파일 정보 얻기
+		str = "";
+		str += "파일명 : " + vfile.name + "<br>";
+		str += "파일 크기 : " + vfile.size + "<br>";
+		str += "파일 유형 : " + vfile.type + "<br>";
+		str += "파일 날짜 : " + vfile.lastModifiedDate.toLocaleDateString()
+				+ "<br>";
+
+		document.getElementById('result2').innerHTML = str;
+
+		reader = new FileReader();
+
+		 if(vfile.name.match('jpg|png|gif|JPG')){
+	         reader.readAsDataURL(vfile); //http://   oracle: data:image
+	      } else {
+	         reader.readAsText(vfile, "UTF-8");
+	      }
+	      reader.onload = function(){
+	         document.getElementById('result1').innerHTML = reader.result;
+	         if(reader.result.match("image")){
+	            vimg = document.getElementById('imgview');
+	            vimg.src = reader.result;
+	            vimg.style.display ="block";
+	         }else{
+	            vimg.style.display ="none";
+	         }
+	      }
+	   }
+
+</script>
+<style type="text/css">
+img {
+	width: 150px;
+	height: 150px;
+}
+</style>
+</head>
+<body>
+
+	<div class="box">
+		<h2>파일 객체</h2>
+		- File : 파일의 정보를 얻는다.<br> - 파일명(name), 파일크기(size), 파일종류(type), 변경
+		날짜(lastModifiedDate)<br> - FileReader 객체 : 파일의 내용을 읽을 수 잇는 기능을 제공<br>
+		- readAsText(file 객체, 인코딩)<br> - readAsDataURL(file 객체)<br>
+		- result : 읽은 내용을 저장하는 기능(속성)<br> - error : 오류 발생시 오류를 저장하는 것이다.<br>
+		<br> <input type="file" id="infile" multiple="multiple">
+		<!-- multiple 이면 파일을 여러개 고를 수 있다. -->
+		<button type="button" onclick="proc1()">실행</button>
+		<div id="result1"></div>
+
+	</div>
+	<div class="box">
+			<h2>파일 정보</h2>
+			<img id="imgview" src="../images/아메리카노.jpg">
+		<div id="result2">
+
+		</div>
+	</div>
+</body>
+</html>
